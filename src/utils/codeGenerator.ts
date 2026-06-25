@@ -1753,6 +1753,23 @@ kotlin.code.style=official
     description: 'Standard JVM and compiler execution options to enable AndroidX compatibility and restrict transitive resource resolution.'
   });
 
+  const gradleWrapperProperties = `distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.4-bin.zip
+networkTimeout=10000
+validateDistributionUrl=true
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+`;
+
+  files.push({
+    name: 'gradle-wrapper.properties',
+    path: 'gradle/wrapper/gradle-wrapper.properties',
+    language: 'plaintext',
+    content: gradleWrapperProperties,
+    description: 'Gradle wrapper configuration setting the Gradle compilation environment to version 8.4.'
+  });
+
   const gradlewScript = `#!/bin/sh
 
 # Precise lightweight gradle launcher wrapper for Linux/macOS
