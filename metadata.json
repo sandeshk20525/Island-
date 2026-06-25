@@ -1,0 +1,6 @@
+{
+  "name": "LSPosed Boilerplate Generator",
+  "description": "Generate clean Kotlin-based LSPosed module boilerplate code targeting SystemUI, with custom logging, entry point declarations, and Android Manifest configurations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
