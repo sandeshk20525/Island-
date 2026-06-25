@@ -1697,7 +1697,22 @@ repositories {
   });
 
   // Top-level / Root Gradle Configs for complete standalone build setup
-  const rootSettingsGradle = `rootProject.name = "${moduleName.replace(/\s+/g, '')}"
+  const rootSettingsGradle = `pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "${moduleName.replace(/\s+/g, '')}"
 include(":app")
 `;
 
