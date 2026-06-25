@@ -1797,7 +1797,7 @@ jobs:
       - name: Upload Debug APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: \${moduleName.replace(/\\s+/g, '')}-Debug-APK
+          name: ${moduleName.replace(/\s+/g, '')}-Debug-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7
