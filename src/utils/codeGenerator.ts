@@ -139,7 +139,7 @@ object NotchDetector {
   });
 
   // 1c. IslandOverlay.kt
-  const islandOverlayContent = `package \${packageName}
+  const islandOverlayContent = `package ${packageName}
 
 import android.animation.ValueAnimator
 import android.content.Context
@@ -347,7 +347,7 @@ class IslandOverlay(private val context: Context) : IslandNotificationInterface 
         try {
             // Read settings dynamically using XSharedPreferences
             val prefs = try {
-                de.robv.android.xposed.XSharedPreferences("\${packageName}", "island_settings")
+                de.robv.android.xposed.XSharedPreferences("${packageName}", "island_settings")
             } catch (e: Exception) {
                 null
             }
@@ -1041,7 +1041,7 @@ class IslandOverlay(private val context: Context) : IslandNotificationInterface 
 
   files.push({
     name: 'IslandOverlay.kt',
-    path: `app/src/main/java/\${packageName.replace(/\\./g, '/')}/IslandOverlay.kt`,
+    path: `app/src/main/java/${packageName.replace(/\./g, '/')}/IslandOverlay.kt`,
     language: 'kotlin',
     content: islandOverlayContent,
     description: 'Bypasses specific ROM themes by creating a secure WindowManager Floating Overlay that handles status bar rendering layout parameters.'
@@ -1151,7 +1151,7 @@ class IslandOverlay(private val context: Context) : IslandNotificationInterface 
                                 
                                 // Check if package is blacklisted using XSharedPreferences
                                 val prefs = try {
-                                    de.robv.android.xposed.XSharedPreferences("\${packageName}", "island_settings")
+                                    de.robv.android.xposed.XSharedPreferences("${packageName}", "island_settings")
                                 } catch (e: Exception) {
                                     null
                                 }

@@ -20,11 +20,10 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '17'
-          # Yahan se cache: 'gradle' hata diya gaya hai kyunki niche wala step isko handle kar lega
+          cache: 'gradle'
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
-        # Yeh step automatically gradle ko setup aur cache kar dega
 
       - name: Generate debug keystore
         run: keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
@@ -37,7 +36,7 @@ jobs:
       - name: Upload Debug APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: GlyphIsland-Debug-APK
+          name: IslandModule-Debug-APK
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 7

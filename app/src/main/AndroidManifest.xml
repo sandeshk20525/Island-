@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.island">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Island Module"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault">
+
+        <!-- 0. Companion Settings UI activity -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 1. LSPosed Module Identification (Isse Android ko pata chalega ki ye ek Xposed module hai) -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+
+        <!-- 2. Module Description jo LSPosed Manager app mein user ko dikhega -->
+        <meta-data
+            android:name="xposeddescription"
+            android:value="Universal statusbar notification pill hook" />
+
+        <!-- 3. Minimum API Version support (Standard 82 or higher) -->
+        <meta-data
+            android:name="xposedminversion"
+            android:value="82" />
+
+        <!-- 4. Default Scope Selection for LSPosed (Stealth & Anti-Detection) -->
+        <!-- This restricts loading of this module ONLY within com.android.systemui. -->
+        <!-- No injection occurs in banking, financial or security apps, preventing any detections. -->
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@array/xposed_scopes" />
+
+    </application>
+</manifest>
